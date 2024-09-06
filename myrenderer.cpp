@@ -34,8 +34,9 @@ int main(){
 
     float i = 0.9;
         j++;
-        std::ofstream file("output"+std::to_string(j)+".ppm", std::ios::binary);
-        std::cout << "output/output"+std::to_string(j)+".ppm\n";
+        std::string output_file = "output.ppm";
+        std::ofstream file(output_file, std::ios::binary);
+        std::cout << output_file+"\n";
         file << "P6\n" << width << " " << height << "\n255\n";
         //            Location,  // Look at            // Vertical // Field of view,    //   Aspect Ratio         //Aperature //Focal Length
         camera Camera(lookfrom, 0.5*(lookfrom+lookat), vec3(0,1,0),              50, float(width)/float(height),   3.0      ,i*(lookat-lookfrom).length() );
